@@ -1,35 +1,644 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Index - NeonForge Hosting</title>
-<link rel="stylesheet" href="assets/style.css">
+  <meta charset="UTF-8" />
+  <title>WildHosting - Neon Game Server Hosting</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="WildHosting - Neon cyberpunk hosting for Minecraft, Rust, ARK, FiveM, VPS and Dedicated Servers."
+  />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
 </head>
 <body>
-<div id="orb-container"></div>
+  <!-- Animated orb background -->
+  <canvas id="orbCanvas"></canvas>
 
-<nav class="nav">
-<a href="index.html">Home</a>
-<a href="pricing.html">Pricing</a>
-<a href="minecraft.html">Minecraft</a>
-<a href="rust.html">Rust</a>
-<a href="ark.html">ARK</a>
-<a href="fivem.html">FiveM</a>
-<a href="vps.html">VPS</a>
-<a href="about.html">About</a>
-<a href="contact.html">Contact</a>
-</nav>
+  <div class="app-shell">
+    <!-- Top navigation -->
+    <header class="navbar">
+      <div class="nav-left">
+        <div class="brand">
+          <span class="brand-logo">⚡</span>
+          <span class="brand-name">WildHosting</span>
+        </div>
+        <nav class="nav-links">
+          <a href="#home" data-route>Home</a>
+          <a href="#pricing" data-route>Pricing</a>
+          <a href="#games" data-route>Games</a>
+          <a href="#status" data-route>Status</a>
+          <a href="#knowledgebase" data-route>Knowledgebase</a>
+          <a href="#support" data-route>Support</a>
+          <a href="#careers" data-route>Careers</a>
+          <a href="#partners" data-route>Partners</a>
+        </nav>
+      </div>
+      <div class="nav-right">
+        <button class="btn ghost" id="loginBtn">Login</button>
+        <button class="btn primary" id="registerBtn">Register</button>
+      </div>
+      <button class="nav-toggle" id="navToggle">☰</button>
+    </header>
 
-<section class="hero">
-<h1>Index</h1>
-<p>Premium game server hosting with Pterodactyl integration.</p>
-</section>
-<section class="cards">
-<div class="card"><h3>Instant Setup</h3><p>Deploy in seconds.</p></div>
-<div class="card"><h3>DDoS Protection</h3><p>Protected infrastructure.</p></div>
-<div class="card"><h3>Pterodactyl</h3><p>Modern management panel.</p></div>
-</section>
-<script src="assets/orbs.js"></script>
+    <!-- Main content (SPA-style pages) -->
+    <main id="app">
+      <!-- HOME / DASHBOARD LANDING -->
+      <section class="page active" id="home">
+        <div class="hero">
+          <div class="hero-text">
+            <h1>WildHosting</h1>
+            <p class="hero-subtitle">
+              Neon cyberpunk hosting for <span>Minecraft</span>, <span>Rust</span>, <span>ARK</span>, <span>FiveM</span>, VPS & Dedicated Servers.
+            </p>
+            <div class="hero-actions">
+              <button class="btn primary" data-route href="#pricing">View Pricing</button>
+              <button class="btn ghost" data-route href="#games">Browse Games</button>
+            </div>
+            <div class="hero-badges">
+              <span class="badge">Azure Static Web Apps Ready</span>
+              <span class="badge">Pterodactyl Powered</span>
+              <span class="badge">99.9% Uptime</span>
+            </div>
+          </div>
+          <div class="hero-visual">
+            <div class="glass-card hero-card">
+              <h3>Client Dashboard Preview</h3>
+              <div class="hero-dashboard">
+                <div class="hero-server">
+                  <div class="server-header">
+                    <span class="status-dot online"></span>
+                    <span>Minecraft Survival #1</span>
+                    <span class="tag">Pterodactyl</span>
+                  </div>
+                  <div class="server-body">
+                    <div class="metric">
+                      <span>CPU</span>
+                      <div class="metric-bar">
+                        <div class="metric-fill" style="width: 42%"></div>
+                      </div>
+                      <span class="metric-value">42%</span>
+                    </div>
+                    <div class="metric">
+                      <span>RAM</span>
+                      <div class="metric-bar">
+                        <div class="metric-fill" style="width: 68%"></div>
+                      </div>
+                      <span class="metric-value">6.8 / 10 GB</span>
+                    </div>
+                    <div class="metric">
+                      <span>Players</span>
+                      <div class="metric-bar">
+                        <div class="metric-fill" style="width: 55%"></div>
+                      </div>
+                      <span class="metric-value">11 / 20</span>
+                    </div>
+                  </div>
+                  <div class="server-footer">
+                    <button class="btn tiny primary">Open Panel</button>
+                    <button class="btn tiny ghost">Console</button>
+                  </div>
+                </div>
+                <div class="hero-skins">
+                  <h4>Recent Players</h4>
+                  <div class="skin-row">
+                    <!-- Placeholder Minecraft skins (replace with your own images/URLs) -->
+                    <div class="skin">
+                      <div class="skin-avatar skin1"></div>
+                      <span>CyberSteve</span>
+                    </div>
+                    <div class="skin">
+                      <div class="skin-avatar skin2"></div>
+                      <span>NeonAlex</span>
+                    </div>
+                    <div class="skin">
+                      <div class="skin-avatar skin3"></div>
+                      <span>ByteMiner</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <p class="hero-note">
+                Fully integrated with your Pterodactyl panel for instant server control.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick feature grid -->
+        <section class="section">
+          <h2 class="section-title">Why WildHosting?</h2>
+          <div class="grid features-grid">
+            <div class="glass-card">
+              <h3>Neon Cyberpunk Aesthetic</h3>
+              <p>Stand out with a futuristic, MCNode-inspired layout and glowing glassmorphism UI.</p>
+            </div>
+            <div class="glass-card">
+              <h3>Azure Static Web Apps</h3>
+              <p>Deploy instantly with GitHub Actions and scale globally on Azure’s edge network.</p>
+            </div>
+            <div class="glass-card">
+              <h3>Pterodactyl Integration</h3>
+              <p>Connect your panel, auto-login links, and server management directly from the dashboard.</p>
+            </div>
+            <div class="glass-card">
+              <h3>Multi-Game Support</h3>
+              <p>Minecraft, Rust, ARK, FiveM, plus VPS and dedicated servers for any workload.</p>
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <!-- PRICING -->
+      <section class="page" id="pricing">
+        <section class="section">
+          <h2 class="section-title">Pricing</h2>
+          <p class="section-subtitle">
+            Transparent, simple pricing for every game and workload.
+          </p>
+
+          <div class="pricing-tabs">
+            <button class="tab-btn active" data-pricing-tab="mc">Minecraft</button>
+            <button class="tab-btn" data-pricing-tab="rust">Rust</button>
+            <button class="tab-btn" data-pricing-tab="ark">ARK</button>
+            <button class="tab-btn" data-pricing-tab="fivem">FiveM</button>
+            <button class="tab-btn" data-pricing-tab="vps">VPS</button>
+            <button class="tab-btn" data-pricing-tab="dedicated">Dedicated</button>
+          </div>
+
+          <div class="pricing-grid" id="pricingGrid">
+            <!-- Filled by JS -->
+          </div>
+        </section>
+
+        <!-- Pricing calculator -->
+        <section class="section">
+          <h2 class="section-title">Pricing Calculator</h2>
+          <div class="glass-card calculator-card">
+            <div class="calc-grid">
+              <div class="calc-inputs">
+                <label>
+                  <span>Game</span>
+                  <select id="calcGame">
+                    <option value="minecraft">Minecraft</option>
+                    <option value="rust">Rust</option>
+                    <option value="ark">ARK</option>
+                    <option value="fivem">FiveM</option>
+                    <option value="vps">VPS</option>
+                    <option value="dedicated">Dedicated</option>
+                  </select>
+                </label>
+                <label>
+                  <span>RAM (GB)</span>
+                  <input type="range" id="calcRam" min="2" max="32" value="8" />
+                  <span id="calcRamValue">8 GB</span>
+                </label>
+                <label>
+                  <span>Storage (GB)</span>
+                  <input type="range" id="calcStorage" min="20" max="500" value="100" />
+                  <span id="calcStorageValue">100 GB</span>
+                </label>
+                <label>
+                  <span>Slots / vCores</span>
+                  <input type="range" id="calcSlots" min="10" max="200" value="40" />
+                  <span id="calcSlotsValue">40</span>
+                </label>
+              </div>
+              <div class="calc-result">
+                <h3>Estimated Monthly Price</h3>
+                <p class="calc-price"><span id="calcPrice">€14.99</span> / month</p>
+                <p class="calc-note">
+                  This is an estimate. Final pricing may vary based on location and add-ons.
+                </p>
+                <button class="btn primary">Continue to Checkout</button>
+              </div>
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <!-- GAMES / PRODUCTS -->
+      <section class="page" id="games">
+        <section class="section">
+          <h2 class="section-title">Game & Server Hosting</h2>
+          <div class="grid games-grid">
+            <div class="glass-card game-card">
+              <h3>Minecraft</h3>
+              <p>Optimized for Paper, Spigot, Fabric, and modpacks. Low latency, DDoS protected.</p>
+              <button class="btn primary" data-route href="#pricing">View Plans</button>
+            </div>
+            <div class="glass-card game-card">
+              <h3>Rust</h3>
+              <p>High tickrate Rust servers with powerful CPUs and instant mod support.</p>
+              <button class="btn primary" data-route href="#pricing">View Plans</button>
+            </div>
+            <div class="glass-card game-card">
+              <h3>ARK</h3>
+              <p>Cluster-ready ARK servers with generous storage and backups.</p>
+              <button class="btn primary" data-route href="#pricing">View Plans</button>
+            </div>
+            <div class="glass-card game-card">
+              <h3>FiveM</h3>
+              <p>Roleplay-ready FiveM servers with blazing fast NVMe storage.</p>
+              <button class="btn primary" data-route href="#pricing">View Plans</button>
+            </div>
+            <div class="glass-card game-card">
+              <h3>VPS</h3>
+              <p>Flexible Linux VPS for custom game servers, bots, and web apps.</p>
+              <button class="btn primary" data-route href="#pricing">View Plans</button>
+            </div>
+            <div class="glass-card game-card">
+              <h3>Dedicated Servers</h3>
+              <p>Bare-metal performance for large communities and enterprises.</p>
+              <button class="btn primary" data-route href="#pricing">View Plans</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- Pterodactyl integration section -->
+        <section class="section">
+          <h2 class="section-title">Pterodactyl Panel Integration</h2>
+          <div class="grid ptero-grid">
+            <div class="glass-card">
+              <h3>Single Sign-On (Front-end)</h3>
+              <p>
+                Link your WildHosting account to your Pterodactyl panel. Use secure tokens or OAuth
+                (configured on your backend) to auto-login users into the panel.
+              </p>
+              <button class="btn ghost">Configure Integration</button>
+            </div>
+            <div class="glass-card">
+              <h3>Server Management</h3>
+              <p>
+                From the dashboard, open console, restart servers, and view resource usage via
+                Pterodactyl’s API (implemented in your backend).
+              </p>
+              <button class="btn ghost">View API Docs</button>
+            </div>
+            <div class="glass-card">
+              <h3>Panel Shortcuts</h3>
+              <p>
+                Add direct links to your panel, subdomain, and server list for quick access.
+              </p>
+              <button class="btn ghost">Open Panel</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- Server location map (stylized) -->
+        <section class="section">
+          <h2 class="section-title">Global Server Locations</h2>
+          <p class="section-subtitle">
+            Low latency worldwide with strategically placed data centers.
+          </p>
+          <div class="glass-card map-card">
+            <div class="map">
+              <div class="map-point eu">EU</div>
+              <div class="map-point na">NA</div>
+              <div class="map-point sa">SA</div>
+              <div class="map-point asia">AS</div>
+              <div class="map-point oce">OC</div>
+            </div>
+            <div class="map-legend">
+              <div><span class="dot eu"></span> Europe (Frankfurt, Amsterdam)</div>
+              <div><span class="dot na"></span> North America (New York, Dallas)</div>
+              <div><span class="dot sa"></span> South America (São Paulo)</div>
+              <div><span class="dot asia"></span> Asia (Singapore, Tokyo)</div>
+              <div><span class="dot oce"></span> Oceania (Sydney)</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section class="section">
+          <h2 class="section-title">Testimonials</h2>
+          <div class="grid testimonials-grid">
+            <div class="glass-card testimonial">
+              <p>“Our Minecraft network saw a 40% ping reduction after moving to WildHosting.”</p>
+              <span class="testimonial-name">NeonCraft Network</span>
+            </div>
+            <div class="glass-card testimonial">
+              <p>“The dashboard and Pterodactyl integration make managing Rust servers painless.”</p>
+              <span class="testimonial-name">RustRunners</span>
+            </div>
+            <div class="glass-card testimonial">
+              <p>“Support solved our FiveM performance issues in under an hour.”</p>
+              <span class="testimonial-name">NightCity RP</span>
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <!-- STATUS PAGE -->
+      <section class="page" id="status">
+        <section class="section">
+          <h2 class="section-title">Status</h2>
+          <p class="section-subtitle">
+            Live overview of our platform health (sample static data).
+          </p>
+          <div class="grid status-grid">
+            <div class="glass-card">
+              <h3>Core Platform</h3>
+              <div class="status-row">
+                <span>API</span><span class="status-pill status-ok">Operational</span>
+              </div>
+              <div class="status-row">
+                <span>Client Dashboard</span><span class="status-pill status-ok">Operational</span>
+              </div>
+              <div class="status-row">
+                <span>Pterodactyl Panel</span><span class="status-pill status-ok">Operational</span>
+              </div>
+            </div>
+            <div class="glass-card">
+              <h3>Regions</h3>
+              <div class="status-row">
+                <span>EU</span><span class="status-pill status-ok">Operational</span>
+              </div>
+              <div class="status-row">
+                <span>NA</span><span class="status-pill status-ok">Operational</span>
+              </div>
+              <div class="status-row">
+                <span>AS</span><span class="status-pill status-minor">Minor Latency</span>
+              </div>
+            </div>
+            <div class="glass-card">
+              <h3>History</h3>
+              <p>No major incidents reported in the last 30 days.</p>
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <!-- KNOWLEDGEBASE -->
+      <section class="page" id="knowledgebase">
+        <section class="section">
+          <h2 class="section-title">Knowledgebase</h2>
+          <p class="section-subtitle">
+            Guides and articles to help you get started.
+          </p>
+          <div class="grid kb-grid">
+            <div class="glass-card">
+              <h3>Getting Started</h3>
+              <ul>
+                <li>Creating your first Minecraft server</li>
+                <li>Connecting your domain</li>
+                <li>Using the client dashboard</li>
+              </ul>
+            </div>
+            <div class="glass-card">
+              <h3>Pterodactyl Panel</h3>
+              <ul>
+                <li>Accessing the panel</li>
+                <li>Creating SFTP users</li>
+                <li>Managing backups</li>
+              </ul>
+            </div>
+            <div class="glass-card">
+              <h3>Billing & Accounts</h3>
+              <ul>
+                <li>Understanding invoices</li>
+                <li>Upgrading/downgrading plans</li>
+                <li>Canceling a service</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="section">
+          <h2 class="section-title">FAQ</h2>
+          <div class="faq-list">
+            <div class="faq-item">
+              <button class="faq-question">
+                What payment methods do you accept?
+                <span class="faq-toggle">+</span>
+              </button>
+              <div class="faq-answer">
+                We accept major credit cards, PayPal, and select regional payment methods.
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question">
+                Can I migrate my existing server?
+                <span class="faq-toggle">+</span>
+              </button>
+              <div class="faq-answer">
+                Yes, our support team can help you migrate from most providers at no extra cost.
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question">
+                Do you offer backups?
+                <span class="faq-toggle">+</span>
+              </button>
+              <div class="faq-answer">
+                Automated backups are included on most plans. You can configure frequency in the dashboard.
+              </div>
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <!-- SUPPORT (Tickets + Contact) -->
+      <section class="page" id="support">
+        <section class="section">
+          <h2 class="section-title">Support Center</h2>
+          <div class="grid support-grid">
+            <div class="glass-card">
+              <h3>Support Tickets</h3>
+              <p>View and manage your tickets (sample UI).</p>
+              <table class="tickets-table">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Subject</th>
+                    <th>Status</th>
+                    <th>Last Update</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>#1024</td>
+                    <td>Minecraft TPS issues</td>
+                    <td><span class="status-pill status-ok">Open</span></td>
+                    <td>2h ago</td>
+                  </tr>
+                  <tr>
+                    <td>#1019</td>
+                    <td>Billing question</td>
+                    <td><span class="status-pill status-ok">Resolved</span></td>
+                    <td>1d ago</td>
+                  </tr>
+                </tbody>
+              </table>
+              <button class="btn primary">Open New Ticket</button>
+            </div>
+
+            <div class="glass-card">
+              <h3>Contact Us</h3>
+              <p>Fully working contact form (front-end). Connect it to your backend or form service.</p>
+              <form id="contactForm" class="contact-form">
+                <label>
+                  <span>Name</span>
+                  <input type="text" id="contactName" required />
+                </label>
+                <label>
+                  <span>Email</span>
+                  <input type="email" id="contactEmail" required />
+                </label>
+                <label>
+                  <span>Subject</span>
+                  <input type="text" id="contactSubject" required />
+                </label>
+                <label>
+                  <span>Message</span>
+                  <textarea id="contactMessage" rows="4" required></textarea>
+                </label>
+                <button type="submit" class="btn primary">Send Message</button>
+                <p id="contactStatus" class="contact-status"></p>
+              </form>
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <!-- CAREERS -->
+      <section class="page" id="careers">
+        <section class="section">
+          <h2 class="section-title">Careers</h2>
+          <p class="section-subtitle">
+            Join the WildHosting crew and help power the next generation of game servers.
+          </p>
+          <div class="grid careers-grid">
+            <div class="glass-card">
+              <h3>Support Engineer</h3>
+              <p>Help customers with performance, configuration, and migrations.</p>
+              <button class="btn ghost">Apply</button>
+            </div>
+            <div class="glass-card">
+              <h3>DevOps Engineer</h3>
+              <p>Build and maintain our Azure and Pterodactyl infrastructure.</p>
+              <button class="btn ghost">Apply</button>
+            </div>
+            <div class="glass-card">
+              <h3>Community Manager</h3>
+              <p>Grow and support our creator and server owner community.</p>
+              <button class="btn ghost">Apply</button>
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <!-- PARTNERS / AFFILIATES -->
+      <section class="page" id="partners">
+        <section class="section">
+          <h2 class="section-title">Partners & Affiliates</h2>
+          <p class="section-subtitle">
+            Earn revenue by promoting WildHosting to your community.
+          </p>
+          <div class="grid partners-grid">
+            <div class="glass-card">
+              <h3>Affiliate Program</h3>
+              <p>Earn recurring commissions for every active referral.</p>
+              <button class="btn primary">Join Program</button>
+            </div>
+            <div class="glass-card">
+              <h3>Creator Sponsorships</h3>
+              <p>Custom deals for YouTubers, streamers, and community owners.</p>
+              <button class="btn ghost">Apply</button>
+            </div>
+            <div class="glass-card">
+              <h3>Partner Networks</h3>
+              <p>Bundle WildHosting with your modpacks, plugins, or communities.</p>
+              <button class="btn ghost">Contact Partner Team</button>
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <!-- TERMS / PRIVACY (simple pages) -->
+      <section class="page" id="terms">
+        <section class="section">
+          <h2 class="section-title">Terms of Service</h2>
+          <div class="glass-card legal-card">
+            <p>
+              This is placeholder text. Replace with your actual Terms of Service. Include details
+              about acceptable use, billing, refunds, and data handling.
+            </p>
+          </div>
+        </section>
+      </section>
+
+      <section class="page" id="privacy">
+        <section class="section">
+          <h2 class="section-title">Privacy Policy</h2>
+          <div class="glass-card legal-card">
+            <p>
+              This is placeholder text. Replace with your actual Privacy Policy. Explain what data
+              you collect, how it is used, and how users can request deletion.
+            </p>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="footer-left">
+        <span>© <span id="year"></span> WildHosting. All rights reserved.</span>
+      </div>
+      <div class="footer-right">
+        <a href="#terms" data-route>Terms of Service</a>
+        <a href="#privacy" data-route>Privacy Policy</a>
+        <a href="#status" data-route>Status</a>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Auth Modals -->
+  <div class="modal-overlay" id="authModal">
+    <div class="modal">
+      <button class="modal-close" id="authClose">×</button>
+      <div class="modal-tabs">
+        <button class="tab-btn active" data-auth-tab="login">Login</button>
+        <button class="tab-btn" data-auth-tab="register">Register</button>
+      </div>
+      <div class="modal-body">
+        <form id="loginForm" class="auth-form active">
+          <label>
+            <span>Email</span>
+            <input type="email" required />
+          </label>
+          <label>
+            <span>Password</span>
+            <input type="password" required />
+          </label>
+          <button type="submit" class="btn primary">Login</button>
+        </form>
+        <form id="registerForm" class="auth-form">
+          <label>
+            <span>Email</span>
+            <input type="email" required />
+          </label>
+          <label>
+            <span>Password</span>
+            <input type="password" required />
+          </label>
+          <label>
+            <span>Confirm Password</span>
+            <input type="password" required />
+          </label>
+          <button type="submit" class="btn primary">Register</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
