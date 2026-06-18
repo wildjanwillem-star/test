@@ -30,6 +30,7 @@
         </div>
         <nav class="nav-links">
           <a href="#home" data-route>Home</a>
+          <a href="#dashboard" data-route>Dashboard</a>
           <a href="#pricing" data-route>Pricing</a>
           <a href="#games" data-route>Games</a>
           <a href="#status" data-route>Status</a>
@@ -37,7 +38,7 @@
           <a href="#support" data-route>Support</a>
           <a href="#careers" data-route>Careers</a>
           <a href="#partners" data-route>Partners</a>
-        </nav>
+      </nav>
       </div>
       <div class="nav-right">
         <button class="btn ghost" id="loginBtn">Login</button>
@@ -107,6 +108,115 @@
                 <div class="hero-skins">
                   <h4>Recent Players</h4>
                   <div class="skin-row">
+                    <!-- CLIENT DASHBOARD -->
+<section class="page" id="dashboard">
+  <section class="section">
+    <h2 class="section-title">Client Dashboard</h2>
+    <p class="section-subtitle">
+      Overview of your services, billing, and recent activity.
+    </p>
+
+    <div class="grid" style="grid-template-columns: minmax(0,1.4fr) minmax(0,1fr); gap:1.25rem;">
+      <!-- Left: Services & Billing -->
+      <div class="glass-card">
+        <h3>Active Services</h3>
+        <table class="tickets-table" style="margin-bottom:1rem;">
+          <thead>
+            <tr>
+              <th>Service</th>
+              <th>Location</th>
+              <th>Next Due</th>
+              <th>Amount</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Minecraft - Grass Plan</td>
+              <td>EU - Amsterdam</td>
+              <td>2026-07-01</td>
+              <td>€5.99</td>
+            </tr>
+            <tr>
+              <td>Rust - Wasteland</td>
+              <td>NA - Dallas</td>
+              <td>2026-07-03</td>
+              <td>€14.99</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>Billing Summary</h3>
+        <div class="grid" style="grid-template-columns: repeat(auto-fit,minmax(140px,1fr)); gap:0.75rem;">
+          <div class="glass-card" style="padding:0.7rem 0.8rem;">
+            <p style="font-size:0.75rem;color:#9ca3af;margin:0 0 0.25rem;">Current Balance</p>
+            <p style="font-size:1.1rem;margin:0;">€0.00</p>
+          </div>
+          <div class="glass-card" style="padding:0.7rem 0.8rem;">
+            <p style="font-size:0.75rem;color:#9ca3af;margin:0 0 0.25rem;">Next Invoice</p>
+            <p style="font-size:1.1rem;margin:0;">€20.98</p>
+          </div>
+          <div class="glass-card" style="padding:0.7rem 0.8rem;">
+            <p style="font-size:0.75rem;color:#9ca3af;margin:0 0 0.25rem;">Open Tickets</p>
+            <p style="font-size:1.1rem;margin:0;">1</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Invoices & Payment Methods -->
+      <div class="glass-card">
+        <h3>Recent Invoices</h3>
+        <table class="tickets-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Date</th>
+              <th>Total</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>INV-2041</td>
+              <td>2026-06-01</td>
+              <td>€20.98</td>
+              <td><span class="status-pill status-ok">Paid</span></td>
+            </tr>
+            <tr>
+              <td>INV-2038</td>
+              <td>2026-05-01</td>
+              <td>€18.99</td>
+              <td><span class="status-pill status-ok">Paid</span></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3 style="margin-top:1rem;">Payment Methods</h3>
+        <div class="grid" style="grid-template-columns: repeat(auto-fit,minmax(140px,1fr)); gap:0.75rem;">
+          <div class="glass-card" style="padding:0.7rem 0.8rem;">
+            <p style="font-size:0.8rem;margin:0 0 0.25rem;">Visa •••• 4242</p>
+            <p style="font-size:0.75rem;color:#9ca3af;margin:0;">Expires 08/28</p>
+          </div>
+          <div class="glass-card" style="padding:0.7rem 0.8rem;display:flex;align-items:center;justify-content:center;">
+            <button class="btn ghost" style="width:100%;">Add Payment Method</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Activity -->
+  <section class="section">
+    <h2 class="section-title">Recent Activity</h2>
+    <div class="glass-card">
+      <ul style="list-style:none;padding:0;margin:0;font-size:0.8rem;color:#9ca3af;">
+        <li>• 2026-06-18 09:12 — Restarted Minecraft Survival #1 via Pterodactyl.</li>
+        <li>• 2026-06-17 21:03 — Paid invoice INV-2041.</li>
+        <li>• 2026-06-16 18:44 — Opened ticket #1024 (Minecraft TPS issues).</li>
+      </ul>
+    </div>
+  </section>
+</section>
+
                     <!-- Placeholder Minecraft skins (replace with your own images/URLs) -->
                     <div class="skin">
                       <div class="skin-avatar skin1"></div>
